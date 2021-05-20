@@ -1,0 +1,49 @@
+.container {
+	max-width: 500px;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+}
+
+/* Flex */
+.flex {
+	display: flex;
+}
+
+/* Flex Item */
+.item {
+	flex: 1;
+	margin: 5px;
+	background: tomato;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+h1 {
+	text-align: center;
+	margin: 20px 0 0 0;
+	font-size: 1.25em;
+	font-weight: normal;
+}
+
+body {
+	font-family: monospace;
+	color: #333;
+}
+
+.cnt {
+	margin: 0 auto;
+	width: 50px;
+	height: 50px;
+}
+
+.padrao{
+	flex-wrap: nowrap;
+}
+
+.quebra{
+	flex-wrap: wrap;
+}
+
+.quebra-reverse{
+	flex-wrap: wrap-reverse
+}

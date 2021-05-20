@@ -1,0 +1,67 @@
+.container {
+	max-width: 500px;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+}
+
+.flex {
+	display: flex;
+}
+
+/* Flex */
+.flex {
+	display: flex;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.flex-item-1 {
+	flex: 1;
+}
+
+/* Flex Item */
+.item {
+	flex: 1;
+	margin: 5px;
+	background: tomato;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+h1 {
+	text-align: center;
+	margin: 20px 0 0 0;
+	font-size: 1.25em;
+	font-weight: normal;
+}
+
+body {
+	font-family: monospace;
+	color: #333;
+}
+
+
+.flex-row {
+	flex-direction: row;
+}
+
+.flex-row-reverse {
+	flex-direction: row-reverse;
+}
+
+.column {
+	flex-direction: column;
+}
+
+.column-reverse {
+	flex-direction: column-reverse;
+}
+
+.cnt {
+	margin: 0 auto;
+	width: 50px;
+	height: 50px;
+}
+
