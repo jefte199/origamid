@@ -1,0 +1,41 @@
+.container {
+	max-width: 420px;
+	height: 300px;
+	margin: 0 auto;
+	display: flex;
+	border: 1px solid #ccc;
+}
+/* Flex */
+.flex {
+	display: flex;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.flex-item-1 {
+	flex: 1;
+}
+
+/* Flex Item */
+.item {
+	margin: 5px;
+	padding: 0 10px;
+	background: tomato;
+	text-align: center;
+	font-size: 1.5em;
+	flex: 1;
+}
+
+h1 {
+	text-align: center;
+	margin: 20px 0 0 0;
+	font-size: 1.25em;
+	font-weight: normal;
+}
+
+body {
+	font-family: monospace;
+	color: #333;
+}

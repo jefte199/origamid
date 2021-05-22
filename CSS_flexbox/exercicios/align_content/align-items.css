@@ -1,0 +1,30 @@
+h2 {
+	text-align: center;
+	margin: 20px 0 0 0;
+	font-size: 18px;
+	font-weight: bolder;
+}
+
+.stretch {
+	align-items: stretch;
+}
+
+.flex-start{
+	align-items: flex-start;
+}
+
+.flex-end{
+	align-items: flex-end;
+}
+
+.center {
+	align-items: center;
+}
+
+.base-line{
+	align-items: baseline;
+}
+
+.space-b {
+	align-items: space-between;
+}
