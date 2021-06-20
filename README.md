@@ -2,7 +2,8 @@
 <br/>
 <h1 align="center"><img width=100 src="https://avatars.githubusercontent.com/u/1330847?v=4" alt="Logo"></h1>
 
-<p align="center">Projetos feitos no curso da .</p>
+<p align="center">Projetos feitos no curso origamide<br>
+</p>
 
 <br/>
 
