@@ -6,11 +6,11 @@ const element_old = document.querySelector(".old");
 const my = 24;
 const your = 20;
 
-if (my > your){
-  element_old.innerHTML = "Sou Mais Velho";
-}else {
-  element_old.innerHTML = "As Suas Ordens milaide";
-}
+let msg = '';
+
+my > your ? msg = "Sou Mais Velho": msg = "As Suas Ordens milaide";
+
+element_old.innerHTML = msg;
 
 // Qual valor é retornado na seguinte expressão?
 var expressao = (5 - 2) && (5 - ' ') && (5 - 2);
