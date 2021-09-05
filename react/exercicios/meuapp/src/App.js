@@ -1,71 +1,47 @@
 import React from 'react';
 
-// Mostre os dados da aplicação, como aprensetado no vídeo
-// Não utilize CSS externo, use o style para mudar as cores
-// Se a situação estiver ativa pinte de verde, inativa vermelho
-// Se o gasto for maior que 10000 mostre uma mensagem
-const luana = {
-  cliente: 'Luana',
-  idade: 27,
-  compras: [
-    { nome: 'Notebook', preco: 'R$ 2500' },
-    { nome: 'Geladeira', preco: 'R$ 3000' },
-    { nome: 'Smartphone', preco: 'R$ 1500' },
-  ],
-  ativa: true,
-};
-
-const mario = {
-  cliente: 'Mario',
-  idade: 31,
-  compras: [
-    { nome: 'Notebook', preco: 'R$ 2500' },
-    { nome: 'Geladeira', preco: 'R$ 3000' },
-    { nome: 'Smartphone', preco: 'R$ 1500' },
-    { nome: 'Guitarra', preco: 'R$ 3500' },
-  ],
-  ativa: false,
-};
-
 const App = () => {
 
-  const dados = mario;
-  console.log(dados);
-  
-  let totalFull = 0;
-
-  dados.compras.map(item => totalFull = totalFull + Number(item.preco.replace("R$ ", "")));
-
-
-  const styleg = {
-    color: 'tomato',
-    fontSize: '2em',
-  };
-
-  const stylered = {
-    color: "red",
-  };
-
-  const stylegreen = {
-    color: "green",
-  };
-
-  const mytitle = <h1 style={styleg}>My app</h1>;
-
+  const produtos = [
+    {
+      id: 1,
+      nome: 'Smartphone',
+      preco: 'R$ 2000',
+      cores: ['#29d8d5', '#252a34', '#fc3766'],
+    },
+    {
+      id: 2,
+      nome: 'Notebook',
+      preco: 'R$ 3000',
+      cores: ['#ffd045', '#d4394b', '#f37c59'],
+    },
+    {
+      id: 3,
+      nome: 'Tablet',
+      preco: 'R$ 1500',
+      cores: ['#365069', '#47c1c8', '#f95786'],
+    },
+  ];
 
   return (
-      <>
-        {mytitle}
-
-        <h2>Nome : {dados.cliente}</h2>
-        <h2>Idade: {dados.idade}</h2>
-        <h2>Conta: <span style={dados.ativa ? stylegreen: stylered}>{dados.ativa ? "ATIVA": "INATIVA"}</span></h2>
-        <h2>Total :R$ {totalFull}</h2>
-        <br />
-        <h2>Observação : </h2>
-        <h2 style={totalFull < 9999 ? stylegreen: stylered}>{totalFull > 9999 ? "Passou o limite, pare de comprar" : "Boas Compras, você tem creditos"}</h2>
-      </>
-    );
+    <>
+      {
+        produtos
+          .filter(({ preco }) => parseInt(preco.split(" ")[1]) > 1500)
+          .map(({ id, nome, preco, cores }) => {
+            return (
+              <div key={id}>
+                <h1 >{nome}</h1>
+                <p>Preço: {preco}</p>
+                <ul>
+                  {cores.map((cor) => <li style={{backgroundColor: cor, color: "white"}} key={cor}>{cor}</li>)}
+                </ul>
+              </div>
+            )
+          })
+      }
+    </>
+  );
 };
 
 
