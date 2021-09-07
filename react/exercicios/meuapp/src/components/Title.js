@@ -1,7 +1,7 @@
 import React from "react";
 
-const Title = ({ cor , txt }) => {
-  return <h1 style={{ color: cor }}>{txt}</h1>
+const Title = ({ txt }) => {
+  return <h1 style={{ color: "#4c8b64" }}>{txt}</h1>
 }
 
 export default Title;
