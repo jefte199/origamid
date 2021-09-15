@@ -12,6 +12,7 @@ import Produto from './components/Produto';
 // Ao clicar no botão faça um fetch a api e mostre os dados do produto na tela.
 // Mostre apenas um produto por vez
 // Mostre a mensagem carregando... enquanto o fetch é realizado
+//        <button style={{ margin: '.5rem' }} onClick={handleClick}>Tablet</button>
 
 const styleCont = {
   maxWidth: "420px",
@@ -20,31 +21,29 @@ const styleCont = {
   flexDirection: "row"
 }
 
+const styleB = { margin: '.5rem' };
 
 const App = (event) => {
   const [prod, setProd] = React.useState(null);
-  const [loading, setLoading] = React.useState(null);
 
-  async function handleClick(event) {
-    setLoading(true);
-    
-    const status = event.target.innerText;
-
-    const product = await fetch(`https://ranekapi.origamid.dev/json/api/produto/${status}`);
-    setProd(await product.json());
-    setLoading(false);
+  async function handleClick(event){
+    const url = 'https://ranekapi.origamid.dev/json/api/produto/';
+    const res = await fetch(`${url}${event.target.innerText}`);
+    setProd(await res.json());
   }
 
   return (
     <>
       <Title txt="LOJA" />
       <div style={styleCont}>
-        <button style={{ margin: '.5rem' }} onClick={handleClick}>Tablet</button>
-        <button style={{ margin: '.5rem' }} onClick={handleClick}>Smartphone</button>
-        <button style={{ margin: '.5rem' }} onClick={handleClick}>Notebook</button>
-      </div>  
-      {loading && <img src="https://www.amaclinica.com/wp-content/plugins/payment-qr-woo/assets/loader.gif" width="30px" alt="load" />}
-      {prod && !loading? <Produto name={prod.nome} price={prod.preco} image={prod.fotos[0].src} alt={prod.fotos[0].titulo} />: null}
+        <button style={styleB} onClick={handleClick}>Tablet</button>
+        <button style={styleB} onClick={handleClick}>Smartphone</button>
+        <button style={styleB} onClick={handleClick}>Notebook</button>
+      </div>
+      {
+        prod ? <Produto dados={prod} /> : <p>Ainda não exitem Produtos</p>
+      }
+      
     </>
   );
 };
