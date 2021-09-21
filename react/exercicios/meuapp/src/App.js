@@ -4,15 +4,13 @@ import React from 'react';
 import Title from './components/Title';
 import Produto from './components/Produto';
 
-// Os links abaixo puxam dados de um produto em formato JSON
-// https://ranekapi.origamid.dev/json/api/produto/tablet
-// https://ranekapi.origamid.dev/json/api/produto/smartphone
+// Quando o usuário clicar em um dos botões, faça um fetch do produto clicado utilizando a api abaixo
 // https://ranekapi.origamid.dev/json/api/produto/notebook
-// Crie uma interface com 3 botões, um para cada produto.
-// Ao clicar no botão faça um fetch a api e mostre os dados do produto na tela.
-// Mostre apenas um produto por vez
-// Mostre a mensagem carregando... enquanto o fetch é realizado
-//        <button style={{ margin: '.5rem' }} onClick={handleClick}>Tablet</button>
+// https://ranekapi.origamid.dev/json/api/produto/smartphone
+// Mostre o nome e preço na tela (separe essa informação em um componente Produto.js)
+// Defina o produto clicado como uma preferência do usuário no localStorage
+// Quando o usuário entrar no site, se existe um produto no localStorage, faça o fetch do mesmo
+
 
 const styleCont = {
   maxWidth: "420px",
@@ -23,27 +21,34 @@ const styleCont = {
 
 const styleB = { margin: '.5rem' };
 
-const App = (event) => {
+const App = () => {
   const [prod, setProd] = React.useState(null);
 
-  async function handleClick(event){
-    const url = 'https://ranekapi.origamid.dev/json/api/produto/';
-    const res = await fetch(`${url}${event.target.innerText}`);
-    setProd(await res.json());
+  async function handleClick(event) {
+    const response = await fetch(`https://ranekapi.origamid.dev/json/api/produto/${event.target.innerText}`);
+    const res = await response.json();
+    setProd(res);
+    localStorage.setItem("produto", prod.nome);
+    //    localStorage.removeItem("produto");
   }
+
+  React.useEffect(async () => {
+    const status = localStorage.getItem("produto");
+    const response = await fetch(`https://ranekapi.origamid.dev/json/api/produto/${status}`);
+    const res = await response.json();
+    setProd(res);
+  }, []);
 
   return (
     <>
-      <Title txt="LOJA" />
+      <Title txt="UseEfect" />
+
       <div style={styleCont}>
-        <button style={styleB} onClick={handleClick}>Tablet</button>
-        <button style={styleB} onClick={handleClick}>Smartphone</button>
         <button style={styleB} onClick={handleClick}>Notebook</button>
+        <button style={styleB} onClick={handleClick}>Smartphone</button>
       </div>
-      {
-        prod ? <Produto dados={prod} /> : <p>Ainda não exitem Produtos</p>
-      }
-      
+
+      {prod && <Produto dado={prod} />}
     </>
   );
 };

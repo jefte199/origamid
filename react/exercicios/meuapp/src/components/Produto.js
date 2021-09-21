@@ -1,17 +1,12 @@
 import React from 'react';
 
-const Produto = ({dados}) => {
-  const title = dados.nome;
-  const price = dados.preco;
-  const image = dados.fotos[0].src;
-  const alt = dados.fotos[0].titulo;
+const Produto = ({dado}) => {
   return (
     <>
-      <h1>{title}</h1>
-      <h2>R$: {price}</h2>
-      <img src={image} alt={alt} />
+    <h1>{dado.nome}</h1>
+    <h2>{dado.preco}</h2>
     </>
-  );
+  )
 }
 
 export default Produto;
