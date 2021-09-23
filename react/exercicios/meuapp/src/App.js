@@ -2,16 +2,7 @@ import React from 'react';
 
 //Components
 import Title from './components/Title';
-import Produto from './components/Produto';
-
-// Quando o usuário clicar em um dos botões, faça um fetch do produto clicado utilizando a api abaixo
-// https://ranekapi.origamid.dev/json/api/produto/notebook
-// https://ranekapi.origamid.dev/json/api/produto/smartphone
-// Mostre o nome e preço na tela (separe essa informação em um componente Produto.js)
-// Defina o produto clicado como uma preferência do usuário no localStorage
-// Quando o usuário entrar no site, se existe um produto no localStorage, faça o fetch do mesmo
-
-
+/*
 const styleCont = {
   maxWidth: "420px",
   margin: "0 auto",
@@ -20,35 +11,108 @@ const styleCont = {
 }
 
 const styleB = { margin: '.5rem' };
-
+*/
 const App = () => {
-  const [prod, setProd] = React.useState(null);
 
-  async function handleClick(event) {
-    const response = await fetch(`https://ranekapi.origamid.dev/json/api/produto/${event.target.innerText}`);
-    const res = await response.json();
-    setProd(res);
-    localStorage.setItem("produto", prod.nome);
-    //    localStorage.removeItem("produto");
+  const [form, setForm] = React.useState({
+    name: "",
+    email: "",
+    senha: "",
+    cep: "",
+    rua: "",
+    bairro: "",
+    cidade: "",
+    estado: "",
+  });
+
+  const [status, setStatus] = React.useState(false);
+
+  const formFild = [
+    {
+      id: "nome",
+      label: "Nome",
+      type: "text"
+    },
+    {
+      id: "email",
+      label: "Email",
+      type: "email"
+    },
+    {
+      id: "senha",
+      label: "Senha",
+      type: "password"
+    },
+    {
+      id: "cep",
+      label: "Cep",
+      type: "text"
+    },
+    {
+      id: "rua",
+      label: "Rua",
+      type: "text"
+    },
+    {
+      id: "bairro",
+      label: "Bairro",
+      type: "text"
+    },
+    {
+      id: "city",
+      label: "city",
+      type: "text"
+    },
+    {
+      id: "estado",
+      label: "Estado",
+      type: "text"
+    },
+
+  ]
+
+  function handleText({ target }) {
+    const { id, value } = target;
+    setForm({ ...form, [id]: value });
   }
 
-  React.useEffect(async () => {
-    const status = localStorage.getItem("produto");
-    const response = await fetch(`https://ranekapi.origamid.dev/json/api/produto/${status}`);
-    const res = await response.json();
-    setProd(res);
-  }, []);
+  function handleSubmit (event) {
+    event.preventDefault();
+    fetch('https://ranekapi.origamid.dev/json/api/usuario', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(form),
+    }).then(response => {
+      response.ok? setStatus(true): setStatus(false);
+    });
+  }
 
   return (
     <>
-      <Title txt="UseEfect" />
-
-      <div style={styleCont}>
-        <button style={styleB} onClick={handleClick}>Notebook</button>
-        <button style={styleB} onClick={handleClick}>Smartphone</button>
-      </div>
-
-      {prod && <Produto dado={prod} />}
+      <Title txt="Form: input" />
+      <form onSubmit={handleSubmit}>
+        {
+          formFild.map(({ id, type, label }) => {
+            return (
+              <div key={id}>
+                <label htmlFor={id}>{label}</label>
+                <input
+                  type={type}
+                  id={id}
+                  value={form[id]}
+                  onChange={handleText}
+                />
+                <br />
+              </div>
+            )
+          })
+        }
+        <p>Status da requisição</p>
+        <p>{status? `${status} Cadastro realizado` : `${status} Cadastro não realizado`}</p>
+        <button>Send</button>
+      </form>
     </>
   );
 };
