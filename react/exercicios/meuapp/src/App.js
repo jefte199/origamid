@@ -1,18 +1,19 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './components/Home';
+import Sobre from './components/Sobre';
+import NnN from './components/NnN';
 
 const App = () => {
   return (
-    <>
-    <div className="card bg-dark text-white m-5" style={{ maxWidth: '18rem' }}>
-      <div className="card-header">Notebook</div>
-      <div className="card-body">
-        <h5 className="card-title">R$ 2500</h5>
-        <p className="card=text">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic distinctio fuga tenetur et est culpa! 
-        </p>
-      </div>
-    </div>
-    </>
+    <BrowserRouter>
+      <h1>HEAD</h1>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="sobre" element={<Sobre />} />
+        <Route path="*" element={<NnN />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
