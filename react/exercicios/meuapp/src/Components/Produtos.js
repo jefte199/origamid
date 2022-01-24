@@ -25,7 +25,7 @@ const Produtos = () => {
           {produtos.map((item) => {
             return (
               <div key={item.id}>
-                <Link to={`produtos/${item.id}`} className={style.link} end>
+                <Link to={`produtos/${item.id}/${item.nome}/${item.preco}/${item.descricao}`} className={style.link} end>
                   <img src={item.fotos[0].src} alt={item.id} />
                   <h1 className={style.titl}>{item.nome}</h1>
                 </Link>
