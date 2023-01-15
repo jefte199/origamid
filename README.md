@@ -15,5 +15,6 @@
 
 - [x] [Web Designer Completo](https://github.com/jefte199/Bikcraft)
 - [x] [CSS Flexbox](https://github.com/jefte199/origamid/tree/main/CSS_flexbox/projeto)
+- [x] [Typescript](https://github.com/jefte199/Aprendendo-Typescript)
 - []  Javascript completo ES6+
 - []  React
