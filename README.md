@@ -7,11 +7,7 @@
 
 <br/>
 
-[origamid](https://www.origamid.com/cursos/)
-
-<br/>
-
-## Cursos Origamid
+## [Cursos origamid](https://www.origamid.com/cursos/)
 
 - [x] [Web Designer Completo](https://github.com/jefte199/Bikcraft)
 - [x] [CSS Flexbox](https://github.com/jefte199/origamid/tree/main/CSS_flexbox/projeto)
