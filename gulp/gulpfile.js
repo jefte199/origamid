@@ -27,6 +27,7 @@ gulp.task('browser-sync', browser);
 
 function watch() {
   gulp.watch('css/scss/*.scss', compilaSass);
+  gulp.watch(['*.html', '*.php']).on('change', browserSync.reload);
 }
 
 gulp.task('watch', watch);
