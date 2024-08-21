@@ -1,31 +1,28 @@
-// Crie um objeto com os seus dados pessoais
-// Deve possui pelo menos duas propriedades nome e sobrenome
-const pessoa = {
-  name: "Jefté",
-  lastName: "Rufino",
-  age: 27,
-  full: function () { return `I am ${this.name} ${this.lastName} and i am ${this.age} years old` },
-}
+// nomeie 3 propriedades ou métodos de strings
+/*const name = "Edvania"
 
-pessoa.name = "Edvania";
-pessoa.age = 21;
-console.log(pessoa.full());
+console.log(`${name} have ${name.length} caracters`)
+console.log(`${name} have ${name[2]}`)
+console.log(`${name} have ${name.indexOf("vania")} `)
+*/
 
-// Crie um objeto de um cachorro que represente um labrador,
-// preto com 10 anos, que late ao ver um homem
+// nomeie 5 propriedades ou métodos de elementos do DOM
+const first_btn_click = document.querySelector(".first_btn_click");
+const h1_title = document.querySelector(".h1_title");
+const h1_resulto_copy = document.querySelector(".h1_resulto_copy");
 
-const dog = {
-  name: "rex",
-  breed: "labrador",
-  age: 4,
-  color: "#000",
-  al(see) {
-    if (see === "homem") {
-      return "Latir"
-    } else {
-      return "dont have"
-    }
-  }
-}
+first_btn_click.addEventListener('click', function() {
+  const lucky_number = Math.random().toFixed(1);
+  h1_title.innerHTML=`Your lucky number is ${lucky_number}`;
+  //copy
+  const copy = h1_title.innerText;
+  console.log(copy)
+  navigator.clipboard.writeText(lucky_number);
 
-console.log(`dog ${dog.name} ${dog.al('homem')}`)
+  h1_resulto_copy.innerHTML=`Copy ${lucky_number}`
+});
+
+
+
+// busque na web um objeto (método) capaz de interagir com o clipboard, 
+// clipboard é a parte do seu computador que lida com o CTRL + C e CTRL + V
