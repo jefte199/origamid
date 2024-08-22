@@ -1,28 +1,24 @@
-// nomeie 3 propriedades ou métodos de strings
-/*const name = "Edvania"
+// Crie uma array com os anos que o Brasil ganhou a copa
+// 1959, 1962, 1970, 1994, 2002
+const nation = [1959, 1962, 1970, 1994, 2002]
 
-console.log(`${name} have ${name.length} caracters`)
-console.log(`${name} have ${name[2]}`)
-console.log(`${name} have ${name.indexOf("vania")} `)
-*/
+// Interaja com a array utilizando um loop, para mostrar
+// no console a seguinte mensagem, `O brasil ganhou a copa de ${ano}`
+//nation.forEach((item, index) => {
+//  console.log(`O Brasil ganhou a copa no ano de ${item}, essa foi a ${index + 1} vez`)
+//})
 
-// nomeie 5 propriedades ou métodos de elementos do DOM
-const first_btn_click = document.querySelector(".first_btn_click");
-const h1_title = document.querySelector(".h1_title");
-const h1_resulto_copy = document.querySelector(".h1_resulto_copy");
+// Interaja com um loop nas frutas abaixo e pare ao chegar em Pera
+var frutas = ['Banana', 'Maçã', 'Pera', 'Uva', 'Melância']
+for (let i = 0; i < frutas.length; i++) {
+  console.log(frutas[i]);
+  if (frutas[i] === "Uva") {
+    break;
+  }
+}
 
-first_btn_click.addEventListener('click', function() {
-  const lucky_number = Math.random().toFixed(1);
-  h1_title.innerHTML=`Your lucky number is ${lucky_number}`;
-  //copy
-  const copy = h1_title.innerText;
-  console.log(copy)
-  navigator.clipboard.writeText(lucky_number);
+// Coloque a última fruta da array acima em uma variável,
+// sem remover a mesma da array.
 
-  h1_resulto_copy.innerHTML=`Copy ${lucky_number}`
-});
-
-
-
-// busque na web um objeto (método) capaz de interagir com o clipboard, 
-// clipboard é a parte do seu computador que lida com o CTRL + C e CTRL + V
+const newFruit = frutas[frutas.length - 1]
+console.log(newFruit)
